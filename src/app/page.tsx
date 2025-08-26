@@ -4,17 +4,17 @@ export async function generateMetadata() {
   try {
     const baseUrl = "https://meta-next-js.vercel.app";
     const metaData = {
-      title: "TopFrog - Blog post for readers to get latest updates",
+      title: "TopFrog ",
       keywords:
-        "AI chatbots, multiple chatbot comparisons, Chatgpt, Writesonic, Bard, AI website, chatbot effectiveness, chatbot analysis, chatbot features, chatbot decision-making, AI systems.",
+        "AI ",
       description:
-        "Discover valuable insights into the world of AI chatbots as our blog analyzes and compares answers from various AI chatbots. Explore the pros and cons, effectiveness, and unique features of these cutting-edge AI systems, enabling you to make informed decisions about the best AI chatbot for your needs.",
+        "Discover ",
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "TopFrog - Blog post for readers to get latest updates",
+        title: "TopFrog ",
         description:
-          "Discover valuable insights into the world of AI chatbots as our blog analyzes and compares answers from various AI chatbots. Explore the pros and cons, effectiveness, and unique features of these cutting-edge AI systems, enabling you to make informed decisions about the best AI chatbot for your needs.",
-        type: `article`,
+          "Discover ",
+        type: `website`,
         locale: `en-US`,
         images: "/banner.png",
       },
