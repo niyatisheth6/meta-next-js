@@ -1,57 +1,38 @@
-import type { Metadata } from "next";
 
+import Head from 'next/head';
 
-import "./globals.css";
+interface LayoutProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+  children: React.ReactNode;
+}
 
-export const metadata: Metadata = {
-  title: "TopFrog - Blog post for readers to get latest updates",
-  keywords:
-    "AI chatbots, multiple chatbot comparisons, Chatgpt, Writesonic, Bard, AI website, chatbot effectiveness, chatbot analysis, chatbot features, chatbot decision-making, AI systems.",
-  description:
-    "Discover valuable insights into the world of AI chatbots as our blog analyzes and compares answers from various AI chatbots. Explore the pros and cons, effectiveness, and unique features of these cutting-edge AI systems, enabling you to make informed decisions about the best AI chatbot for your needs.",
-  openGraph: {
-    title: "TopFrog - Blog post for readers to get latest updates",
-    description:
-      "Discover valuable insights into the world of AI chatbots as our blog analyzes and compares answers from various AI chatbots. Explore the pros and cons, effectiveness, and unique features of these cutting-edge AI systems, enabling you to make informed decisions about the best AI chatbot for your needs.",
-    type: `article`,
-    locale: `en-US`,
-  },
+const Layout: React.FC<LayoutProps> = ({ title, description, imageUrl, children }) => {
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {/* Open Graph meta tags for link preview */}
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:type" content="website" />
+        
+        {/* Optional Twitter card for better integration */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={imageUrl} />
+        
+        {/* For mobile-friendly content */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <main>{children}</main>
+    </>
+  );
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <head>
-        <meta property="description" content="<generated>" />
-
-        <meta
-          property="og:image"
-          content={`https://meta-next-js.vercel.app/banner.png`}
-        />
-        <meta
-          property="og:url"
-          content={`https://meta-next-js.vercel.app/banner.png`}
-        />
-        <meta property="og:image:alt" content="top-frog" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        <meta
-          name="twitter:image"
-          content={`https://meta-next-js.vercel.app/banner.png`}
-        />
-        <meta name="twitter:image:type" content="image/png" />
-        <meta name="twitter:image:width" content="1200" />
-        <meta name="twitter:image:height" content="630" />
-      </head>
-      <body>
-       {children}
-      </body>
-    </html>
-  );
-}
+export default Layout;
