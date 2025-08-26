@@ -1,7 +1,8 @@
 
+import React from 'react';
 import Head from 'next/head';
 
-interface LayoutProps {
+export interface LayoutProps {
   title: string;
   description: string;
   imageUrl: string;
